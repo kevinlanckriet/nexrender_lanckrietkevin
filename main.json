@@ -1,0 +1,76 @@
+{
+    "template": {
+        "src": "file:///C:/Users/kreed1910/Desktop/Automation/Music_Visualiser.aep",
+        "composition": "All",
+        "frameStart": 0,
+        "frameEnd": 3950
+    },
+    "assets": [
+        {
+            "src": "file:///C:/Users/kreed1910/Desktop/Automation/Assets/Background.jpg",
+            "type": "image",
+            "layerName": "Background"
+        },
+        {
+          "src": "file:///C:/Users/kreed1910/Desktop/Automation/Assets/Audio.mp3",
+          "type": "audio",
+          "layerName": "Music"
+        },
+        {
+            "src": "file:///C:/Users/kreed1910/Desktop/Automation/Assets/Artist_picture.jpg",
+            "type": "image",
+            "layerName": "Artist_picture"
+        },
+        {
+            "type": "data",
+            "layerName": "Title",
+            "property": "Source Text",
+            "value": "Wake Up"
+        },
+        {
+            "type": "data",
+            "layerName": "Artist",
+            "property": "Source Text",
+            "value": "Jake Hill"
+        },
+        {
+            "type": "data",
+            "layerName": "Solid_spectrum",
+            "property": "Effects.Gradient.Color 1",
+            "value": [255,0,0]
+        },
+        {
+            "type": "data",
+            "layerName": "Solid_spectrum",
+            "property": "Effects.Gradient.Color 2",
+            "value": [150,100,0]
+        },
+        {
+            "type": "data",
+            "layerName": "Solid_spectrum",
+            "property": "Effects.Gradient.Color 3",
+            "value": [180,200,0]
+        },
+        {
+            "type": "data",
+            "layerName": "Solid_spectrum",
+            "property": "Effects.Gradient.Color 4",
+            "value": [200,40,0]
+        }
+    ],
+    "actions":{
+        "postrender": [
+            {
+                "module": "@nexrender/action-encode",
+                "preset": "mp4",
+                "output": "encoded.mp4",
+                "params": {"-vcodec": "libx264"}
+            },
+            {
+                "module": "@nexrender/action-copy",
+                "input":  "encoded.mp4",
+                "output": "C:/Users/kreed1910/Desktop/Automation/output.mp4"
+            }
+        ]
+    }
+}
